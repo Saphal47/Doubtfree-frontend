@@ -28,7 +28,7 @@ const Contact = () => {
           <section className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
-              <p className="text-gray-800">
+              <p className="text-gray-800 font-poppins">
                 We'd love to hear from you! If you have any questions, feedback, or inquiries, please reach out to us
                 using the contact details below or fill out the contact form. Our team will get back to you as soon as
                 possible.

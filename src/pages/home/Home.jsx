@@ -85,11 +85,11 @@ const Home = () => {
         <div className="home-right">
           <img
             src="/dizzyeducation-1@2x.png"
-            className="max-w-[50%] h-[60%] floating-image mr-4 mt-6"
+            className="md:max-w-[50%] md:h-[60%]   sm:max-w-[40%] sm:h-[50%]  max-w-[30%] h-[40%] floating-image  mr-4 mt-6"
           />
         </div>
       </div>
-      <div className="text-gray py-4 px-6 text-left container-home1">
+         <div className="text-gray py-4 px-6 text-left container-home1">
         <div className="text-lg font-bold mb-2">
           Discover the best coding course for your kids.
         </div>

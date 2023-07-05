@@ -110,7 +110,7 @@ const Home = () => {
             </p>
             <div className="w-full flex flex-nowrap flex-row">
               <Link
-                to="/dashboard/courses"
+                to="/courses"
                 style={{ width: "fit-content" }}
                 className="flex justify-content-center align-items-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-md text-lg "
               >

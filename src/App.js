@@ -41,13 +41,13 @@ function App() {
         {isLoggedIn && (
           <>
             <Route path="/dashboard/*" element={<Dashboard />} />{" "}
+            <Route path="/change-password" element={<ChangePassword />} />{" "}
           </>
         )}{" "}
         {!isLoggedIn && (
           <>
             <Route path="/login" element={<LoginDemo />} />{" "}
             <Route path="/forget-password" element={<ForgetPassword />} />{" "}
-            <Route path="/change-password" element={<ChangePassword />} />{" "}
             <Route path="/register" element={<Register />} />{" "}
           </>
         )}{" "}

@@ -1,16 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {
-  Card,
-  Descriptions,
-  Image,
-  Input,
-  Modal,
-  Row,
-  Tag,
-  Typography,
-} from "antd";
+import { Card, Descriptions, Image, Modal, Row, Tag, Typography } from "antd";
 import "./css/profile.css";
-import CoursesTable from "../../components/Table";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import EditProfile from "./editprofile";
@@ -113,6 +103,14 @@ const Profile = () => {
                     </Descriptions.Item>
                     <Descriptions.Item label="Date of Birth">
                       {profile_data.result.date_of_birth}
+                    </Descriptions.Item>
+                    <Descriptions.Item label="Change Password">
+                      <Link
+                        to="/change-password"
+                        className="text-blue-600 hover:text-gray-400"
+                      >
+                        Change Password
+                      </Link>
                     </Descriptions.Item>
                   </Descriptions>
                 )}

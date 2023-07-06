@@ -1,5 +1,6 @@
 import getuser from '../../actions/getuser';
 import VERIFY_AUTH from '../../actions/verfiy';
+import { GetDoubtsService } from '../doubts/get';
 
 
 export async function LoginService(email, password, dispatch) {
@@ -28,6 +29,7 @@ export async function LoginService(email, password, dispatch) {
             } else {
                 dispatch(getuser(res));
                 dispatch(VERIFY_AUTH({ isLoggedIn: true }))
+                GetDoubtsService(dispatch)
                 msg = "Logged In";
             }
         })

@@ -2,20 +2,9 @@ import { React, useState, useEffect } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
-
-// import HomeContent from "../../components/HomeContent"
-import { items, services_home } from "./constants";
+import { services_home } from "./constants";
 import { TypeAnimation } from "react-type-animation";
-import {
-  BranchesOutlined,
-  CodeFilled,
-  CompassFilled,
-  ExpandAltOutlined,
-  GithubFilled,
-  LinkOutlined,
-  MoreOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { CompassFilled, LinkOutlined } from "@ant-design/icons";
 
 const Home = () => {
   const [textColor, setTextColor] = useState("black");
@@ -121,7 +110,7 @@ const Home = () => {
             </p>
             <div className="w-full flex flex-nowrap flex-row">
               <Link
-                to="/dashboard/courses"
+                to="/courses"
                 style={{ width: "fit-content" }}
                 className="flex justify-content-center align-items-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-md text-lg "
               >

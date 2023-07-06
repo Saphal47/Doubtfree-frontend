@@ -1,5 +1,10 @@
 import React from "react";
-import { LockOutlined, MailOutlined, UserOutlined, CloseOutlined } from "@ant-design/icons";
+import {
+  LockOutlined,
+  MailOutlined,
+  UserOutlined,
+  CloseOutlined,
+} from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
@@ -31,7 +36,6 @@ const LoginDemo = () => {
     navigate("/"); // Navigates to the homepage ("/")
   };
 
-
   return (
     <>
       {contextHolder}
@@ -47,7 +51,11 @@ const LoginDemo = () => {
         >
           <div className="form-head flex items-center">
             <h4 className="text-center">Login</h4>
-            <button type="button" className="cancel-button ml-auto" onClick={handleCancel}>
+            <button
+              type="button"
+              className="cancel-button ml-auto"
+              onClick={handleCancel}
+            >
               <CloseOutlined />
             </button>
           </div>

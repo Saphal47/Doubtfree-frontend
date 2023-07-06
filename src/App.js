@@ -16,13 +16,12 @@ import ForgetPassword from "./pages/forget password";
 import ChangePassword from "./pages/change password";
 import { GetAllCourseService } from "./services/courses/get";
 import ResetPassword from "./pages/reset password";
-import Footer from "./components/Footer";
 import CourseStructure from "./components/CourseStructure";
 import CoursesAll from "./pages/courses all";
-import Landing from "./components/compiler/compiler/Landing"
-
-import QnA from "./pages/QnA"
-import NewQ from "./pages/NewQ"
+import Landing from "./components/compiler/compiler/Landing";
+import QnA from "./pages/QnA";
+import NewQ from "./pages/NewQ";
+import { GetDoubtsService } from "./services/doubts/get";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +30,7 @@ function App() {
     GetAllCourseService(dispatch);
     if (isLoggedIn) {
       console.log("Logged IN");
+      GetDoubtsService(dispatch);
     }
   }, []);
   return (
@@ -58,10 +58,10 @@ function App() {
         <Route path="/courseContent" element={<CourseStructure />} />{" "}
         <Route path="/reset-password/:token" element={<ResetPassword />} />{" "}
         <Route path="/*" element={<Navigate to="/" />} />{" "}
-        <Route path="/landing" element={<Landing/>}/> 
-        <Route path="/qna" element={<QnA/>}/>
-        <Route path="/newq" element={<NewQ/>}/>
-      </Routes>
+        <Route path="/landing" element={<Landing />} />{" "}
+        <Route path="/qna" element={<QnA />} />{" "}
+        <Route path="/newq" element={<NewQ />} />{" "}
+      </Routes>{" "}
     </>
   );
 }

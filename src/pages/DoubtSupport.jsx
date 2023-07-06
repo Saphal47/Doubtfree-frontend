@@ -27,57 +27,7 @@ const DoubtSupport = () => {
           skills, and abilities to respond productively to those changes.
         </div>
       </div>
-      {/* <section className="mt-2"> 
-        <div className="z-0"><Grid/></div>
-        
-        <section className="mt-12">
-          
-            <h2 className="text-4xl font-bold mb-4 text-center mt-4">Connect with Our Mentors</h2>
-
-
-            <div className="flex justify-center gap-10">
-
-              <div className="card w-72">
-                <img src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" className="card-img-top" alt="..." />
-                <div className="card-body text-center">
-                  <h5 className="card-title font-semibold">Mentor 1</h5>
-                  <p className="card-text">
-                    Machine Learning
-                  </p>
-                  <a href="https://meet.google.com/fun-xkve-mti" className="btn btn-primary">
-                    Join
-                  </a>
-                </div>
-              </div>
-
-              <div className="card w-72">
-                <img src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" className="card-img-top" alt="..." />
-                <div className="card-body text-center">
-                  <h5 className="card-title font-semibold">Mentor 2</h5>
-                  <p className="card-text">
-                  Web Development
-                  </p>
-                  <a href="https://meet.google.com/fun-xkve-mti" className="btn btn-primary">
-                    Join
-                  </a> 
-                </div>
-              </div>
-
-              <div className="card w-72">
-                  <img src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" className="card-img-top" alt="..." />
-                  <div className="card-body text-center">
-                    <h5 className="card-title font-semibold ">Mentor 3</h5>
-                    <p className="card-text">
-                      App Development
-                    </p>
-                    <a href="https://meet.google.com/fun-xkve-mti" className="btn btn-primary">
-                      Join
-                    </a>
-                  </div>
-              </div>
-
-            </div>
-        </section> */}
+      
 
         <div className="mt-0 z-0"><GridLower/></div>
       {/* </section> */}
@@ -87,15 +37,55 @@ const DoubtSupport = () => {
 
       
 
+      <h1 className="mb-6 mt-4 text-5xl font-extrabold tracking-tight text-center text-black-900 lg:mb-8 lg:text-5xl">
+                  CONNECT WITH OUR MENTORS
+      </h1>
+            <div>
+              <section className="container mx-auto p-2">
+              <div className="mb-4">
+                <h2 className="text-3xl font-semibold mb-2">Submit a Doubt</h2>
+                <form>
+                  <div className="flex flex-col mb-2">
+                    <label for="mentor" className="text-sm mb-1">
+                      Select a Mentor
+                    </label>
+                    <select
+                      id="mentor"
+                      className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="">-- Select a Mentor --</option>
+                      <option value="mentor1">Mentor 1</option>
+                      <option value="mentor2">Mentor 2</option>
+                      <option value="mentor3">Mentor 3</option>
+                    </select>
+                  </div>
+                  <div className="flex flex-col mb-2">
+                    <label for="doubt" className="text-sm mb-1">
+                      Your Doubt
+                    </label>
+                    <textarea
+                      id="doubt"
+                      rows="4"
+                      className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
+              </section>
 
-        <div>
-          <h1 class="text-3xl mt-4 font-semibold text-center m mb-2">Mentors</h1>
-          <div class="flex justify-center flex-wrap gap-4">
-            <div class="bg-white shadow-md rounded-lg p-4">
+          
+          <div className="flex justify-center flex-wrap gap-4">
+            <div className="bg-white shadow-md rounded-lg p-4">
               <img src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" className="card-img-top" alt="..." />
 
-              <h3 class="text-lg font-semibold mb-2">Mentor Name</h3>
-              <p class="mb-4">Description of the mentor or their expertise</p>
+              <h3 className="text-lg text-center font-semibold mb-2">Mentor Name</h3>
+              <p className="mb-4">Description of the mentor or their expertise</p>
               <a
                 href="https://meet.google.com/fun-xkve-mti"
                 className="px-4 py-2  bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -103,26 +93,26 @@ const DoubtSupport = () => {
                 Schedule a Meeting
               </a>
             </div>
-            <div class="bg-white shadow-md rounded-lg p-4">
+            <div className="bg-white shadow-md rounded-lg p-4">
               <img src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" className="card-img-top" alt="..." />
 
-              <h3 class="text-lg font-semibold mb-2">Mentor Name</h3>
-              <p class="mb-4">Description of the mentor or their expertise</p>
+              <h3 className="text-lg text-center font-semibold mb-2">Mentor Name</h3>
+              <p className="mb-4">Description of the mentor or their expertise</p>
               <a
                 href="https://meet.google.com/fun-xkve-mti" 
-                class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 Schedule a Meeting
               </a>
             </div>
-            <div class="bg-white shadow-md rounded-lg p-4">
+            <div className="bg-white shadow-md rounded-lg p-4">
             <img src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" className="card-img-top" alt="..." />
 
-              <h3 class="text-lg font-semibold mb-2">Mentor Name</h3>
-              <p class="mb-4">Description of the mentor or their expertise</p>
+              <h3 className="text-lg text-center font-semibold mb-2">Mentor Name</h3>
+              <p className="mb-4">Description of the mentor or their expertise</p>
               <a
                 href="https://meet.google.com/fun-xkve-mti" 
-                class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 Schedule a Meeting
               </a>

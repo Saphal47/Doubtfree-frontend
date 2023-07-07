@@ -1,11 +1,34 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link
+ } from "react-router-dom";
+ import QuestionCard, { QuestionCardNEW } from "../pages/doubts/question";
+
+function isMatched(searchString, sentence) {
+  const regex = new RegExp(searchString, "i");
+  return regex.test(sentence);
+}
+
+const searchResult = (query, data,setDoubt) =>
+    
+  setDoubt=data?.map((val, idx) => {
+            return(
+            isMatched(query, val.title)?val:{});})
+        
+    
+  
 
 const SearchBar = () => {
+  const [doubt,setDoubt]=useState([]);
+  const getdoubts = useSelector((state) => state.getdoubts).result;
+  // console.log(getdoubts);
   const [searchQuery, setSearchQuery] = useState("");
   const [uploadedImage, setUploadedImage] = useState(null);
 
   const handleSearch = () => {
     // Perform search logic based on searchQuery
+    console.log(getdoubts.questions);
+      searchResult(searchQuery, getdoubts.questions,setDoubt) ;
     console.log("Searching for:", searchQuery);
   };
 
@@ -80,6 +103,14 @@ const SearchBar = () => {
           >
             <i class="bi bi-search"></i>
           </button>
+        
+          <div className="flex justify-start align-top flex-wrap my-5 gap-3">
+        {getdoubts &&
+          setDoubt
+            ?.map((question, index) => {
+              return <QuestionCardNEW key={index} question={question} />;
+            })}
+      </div>
           
 
           {/* <button className="text-gray"

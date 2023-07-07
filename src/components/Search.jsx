@@ -12,6 +12,7 @@ function isMatched(searchString, sentence) {
 const searchResult = (query, data) =>
   data?.map((_, idx) => {
     const category = `${query}${idx}`;
+    console.log(category);
     return {
       value: category,
       label: (

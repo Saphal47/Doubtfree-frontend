@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import QueryBar from "../components/QueryBar";
 import askNewQ from "./NewQ";
-import QuestionCard from "./doubts/question";
+import {QuestionCard} from "./doubts/question";
 import { useSelector } from "react-redux";
 const QnA = () => {
   const getdoubts = useSelector((state) => state.getdoubts).result;

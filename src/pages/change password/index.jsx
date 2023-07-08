@@ -1,28 +1,39 @@
-import React from "react";
-import { LockOutlined, MailOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input, message } from "antd";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Button, Form, Input, message } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { ChangePasswordService } from "../../services/auth/changepass";
 
 const ChangePassword = () => {
-  const dispatch = useDispatch();
+  const token = useSelector((state) => state.getuser?.result?.token);
   const [messageApi, contextHolder] = message.useMessage();
+  const [loading, setLoading] = useState(false);
 
   const onFinish = async (values) => {
     console.log(values);
     const key = "updatable";
+    setLoading(true);
     messageApi.open({
       key,
       type: "loading",
       content: "Loading...",
     });
-    // const res = await LoginService(values.email, values.password, dispatch);
-    messageApi.open({
-      key,
-      type: "success",
-      content: "fsdg",
-      duration: 3,
-    });
+    try {
+      const res = await ChangePasswordService(values.password, token);
+      messageApi.open({
+        key,
+        type: "success",
+        content: res,
+        duration: 3,
+      });
+    } catch (err) {
+      messageApi.open({
+        key,
+        type: "error",
+        content: "Error while in change password",
+        duration: 3,
+      });
+    }
+    setLoading(false);
   };
   return (
     <>
@@ -31,28 +42,12 @@ const ChangePassword = () => {
         <Form
           name="normal_login"
           className="container-login-form"
-          initialValues={{
-            remember: true,
-          }}
           onFinish={onFinish}
           noValidate
         >
           <span className="form-head">
             <h4>Change Password</h4>
           </span>
-          <Form.Item
-            name="old_password"
-            label="Old Password"
-            rules={[
-              {
-                required: true,
-                message: "Please input your old password!",
-              },
-            ]}
-            hasFeedback
-          >
-            <Input.Password />
-          </Form.Item>
           <Form.Item
             name="password"
             label="New Password"
@@ -68,7 +63,7 @@ const ChangePassword = () => {
           </Form.Item>
           <Form.Item
             name="confirm"
-            label="Confirm New Password"
+            label="Re-enter Password"
             dependencies={["password"]}
             hasFeedback
             rules={[
@@ -96,11 +91,11 @@ const ChangePassword = () => {
             <Button
               type="primary"
               htmlType="submit"
-              className="login-form-button"
+              className="login-form-button bg-blue-600"
+              loading={loading}
             >
-              Change Password
+              {loading ? "Please wait.." : "Change Password"}
             </Button>
-            Or <Link to="/login">Login</Link>
           </Form.Item>
         </Form>
       </div>

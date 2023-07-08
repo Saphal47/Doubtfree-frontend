@@ -21,7 +21,10 @@ const QuestionCard = ({ question }) => {
 
       <MdEditor
         value={details}
-        renderHTML={(text) => mdParser.render(text)}
+        renderHTML={(text) => {
+          const modifiedText = text.replace(/\+\+(.+?)\+\+/g, "<u>$1</u>");
+          return mdParser.render(modifiedText);
+        }}
         view={{ menu: false, md: false, html: true }}
       />
       <p className="text-gray-500 text-sm mt-2">Question ID: {_id}</p>

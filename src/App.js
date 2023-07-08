@@ -1,7 +1,6 @@
 import React from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-// import ChangePassword from "./pages/grid";
 import Navbar from "./components/Navbar";
 import Home from "./pages/home/Home";
 import LoginDemo from "./pages/login";
@@ -22,6 +21,7 @@ import Landing from "./components/compiler/compiler/Landing";
 import QnA from "./pages/QnA";
 import NewQ from "./pages/NewQ";
 import { GetDoubtsService } from "./services/doubts/get";
+import ScrollToTop from "./components/scrollToTop";
 
 
 function App() {
@@ -36,19 +36,20 @@ function App() {
   }, []);
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />{" "}
         {isLoggedIn && (
           <>
             <Route path="/dashboard/*" element={<Dashboard />} />{" "}
+            <Route path="/change-password" element={<ChangePassword />} />{" "}
           </>
         )}{" "}
         {!isLoggedIn && (
           <>
             <Route path="/login" element={<LoginDemo />} />{" "}
             <Route path="/forget-password" element={<ForgetPassword />} />{" "}
-            <Route path="/change-password" element={<ChangePassword />} />{" "}
             <Route path="/register" element={<Register />} />{" "}
           </>
         )}{" "}

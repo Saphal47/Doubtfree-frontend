@@ -41,7 +41,6 @@ const NewAnswer = ({
     }
   };
 
-
   return (
     <>
       <div className="mb-3">
@@ -66,7 +65,10 @@ const NewAnswer = ({
           placeholder="e.g. I didn't understand this part,here is the attached screenshot..."
           value={answerDetails}
           style={{ height: "200px" }}
-          renderHTML={(text) => mdParser.render(text)}
+          renderHTML={(text) => {
+            const modifiedText = text.replace(/\+\+(.+?)\+\+/g, "<u>$1</u>");
+            return mdParser.render(modifiedText);
+          }}
           onChange={handleEditorChange}
           onImageUpload={handleImageUpload}
           view={{

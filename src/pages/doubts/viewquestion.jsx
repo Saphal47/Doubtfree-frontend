@@ -101,7 +101,10 @@ const ViewQuestion = () => {
           <p className="text-gray-700 mb-2">Posted by: {question.user}</p>
           <MdEditor
             value={question.details}
-            renderHTML={(text) => mdParser.render(text)}
+            renderHTML={(text) => {
+              const modifiedText = text.replace(/\+\+(.+?)\+\+/g, "<u>$1</u>");
+              return mdParser.render(modifiedText);
+            }}
             view={{ menu: false, md: false, html: true }}
           />
         </div>
@@ -162,7 +165,13 @@ const ViewQuestion = () => {
             >
               <MdEditor
                 value={answer.details}
-                renderHTML={(text) => mdParser.render(text)}
+                renderHTML={(text) => {
+                  const modifiedText = text.replace(
+                    /\+\+(.+?)\+\+/g,
+                    "<u>$1</u>"
+                  );
+                  return mdParser.render(modifiedText);
+                }}
                 view={{ menu: false, md: false, html: true }}
               />
 

@@ -1,0 +1,46 @@
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-gap: 0;
+    grid-auto-rows: 100px;
+    justify-content: space-between;
+  }
+  
+  .item-grid {
+    color: brown;
+  }
+  
+  .gr1 {
+    background-color: rgb(200, 194, 206);
+  }
+  
+  .gr2 {
+    background-color: rgb(175, 231, 231);
+  }
+  
+  .gr3 {
+    background-color: rgb(116, 219, 166);
+  }
+  
+  .gr4 {
+    background-color: rgb(212, 181, 186);
+  }
+  
+  .gr5 {
+    background-color: rgb(134, 176, 221);
+  }
+  
+  .gr6 {
+    background-color: aliceblue;
+  }
+  
+  .gr7 {
+    background-color: bisque;
+  }
+  
+  @media (max-width: 640px) {
+    .container-grid {
+      grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    }
+  }
+  

@@ -1,121 +1,34 @@
+import React from "react";
 import {
-  FileOutlined,
-  PieChartOutlined,
   UserOutlined,
   DesktopOutlined,
-  TeamOutlined,
-  MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
+  ArrowLeftOutlined,
+  FolderAddOutlined,
+  QuestionCircleOutlined,
 } from "@ant-design/icons";
-import { Breadcrumb, Button, Layout, Menu, Space, theme } from "antd";
+import { Breadcrumb, Image, Layout, theme } from "antd";
 import { useState } from "react";
-const { Header, Content, Footer, Sider } = Layout;
-function getItem(label, key, icon, children) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  };
-}
-const items1 = [
-  {
-    label: "Navigation One",
-    key: "mail",
-    icon: <MailOutlined />,
-  },
-  {
-    label: "Navigation Two",
-    key: "app",
-    icon: <AppstoreOutlined />,
-    disabled: true,
-  },
-  {
-    label: "Navigation Three - Submenu",
-    key: "SubMenu",
-    icon: <SettingOutlined />,
-    children: [
-      {
-        type: "group",
-        label: "Item 1",
-        children: [
-          {
-            label: "Option 1",
-            key: "setting:1",
-          },
-          {
-            label: "Option 2",
-            key: "setting:2",
-          },
-        ],
-      },
-      {
-        type: "group",
-        label: "Item 2",
-        children: [
-          {
-            label: "Option 3",
-            key: "setting:3",
-          },
-          {
-            label: "Option 4",
-            key: "setting:4",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    label: (
-      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-        Navigation Four - Link
-      </a>
-    ),
-    key: "alipay",
-  },
-];
-const items = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
-  ]),
-  getItem("Files", "9", <FileOutlined />),
-];
+import Profile from "./profile";
+import Courses from "./courses";
+import { Link, Route, Routes } from "react-router-dom";
+import AddCourse from "./addcourse";
+import { useSelector } from "react-redux";
+import { Typography } from "antd";
+import LearnCourse from "./course";
+import Landing from "../../components/compiler/compiler/Landing";
+
+const { Content, Footer, Sider } = Layout;
+const { Title } = Typography;
 
 const Dashboard = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
+  const getuser = useSelector((state) => state.getuser).result;
+  const [active, setActive] = useState("1");
   const {
     token: { colorBgContainer },
   } = theme.useToken();
   return (
     <>
-      {/* <Header style={{ display: "flex", alignItems: "center" }}>
-        <h4 style={{ color: "#fff", marginRight: "50px" }}>Logo</h4>
-        <Space
-          wrap
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
-          <Button type="link">Courses</Button>
-          <Button type="link">Register</Button>
-          <Button type="link">About Us</Button>
-
-          <Button type="link">Home</Button>
-          <Button type="primary">Login</Button>
-        </Space>
-      </Header> */}
       <Layout
         style={{
           minHeight: "100vh",
@@ -127,24 +40,103 @@ const Dashboard = () => {
           collapsed={collapsed}
           onCollapse={(value) => setCollapsed(value)}
         >
-          <div className="demo-logo-vertical" />
-          <Menu
-            theme="dark"
-            defaultSelectedKeys={["1"]}
-            mode="inline"
-            items={items}
-          />
+          <div className="side-bar-links">
+            <div>
+              <Image
+                preview={false}
+                width={80}
+                height={80}
+                className="rounded-circle my-3 border-4 border-solid border-blue-500"
+                src={getuser.profileImage}
+                fallback="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              />
+            </div>
+            <Link
+              to="/dashboard/profile"
+              className={active === "1" ? "active" : ""}
+              onClick={() => setActive("1")}
+            >
+              <div className="flex flex-col items-center group relative">
+                <UserOutlined className="mb-1" />
+                <div className="flex items-center absolute top-full mt-2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                  My Profile
+                </div>
+              </div>
+
+              {!collapsed && "My Profile"}
+            </Link>
+            <Link
+              to="/dashboard/courses"
+              className={active === "2" ? "active" : ""}
+              onClick={() => setActive("2")}
+            >
+              {" "}
+              <div className="flex flex-col items-center group relative">
+                <DesktopOutlined className="mb-1" />
+                <div className="flex items-center absolute top-full mt-2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                  My Courses
+                </div>
+              </div>
+              {!collapsed && "My Courses"}
+            </Link>
+            <Link
+              to="/dashboard/playground"
+              className={active === "3" ? "active" : ""}
+              onClick={() => setActive("3")}
+            >
+              {" "}
+              <div className="flex flex-col items-center group relative">
+                <DesktopOutlined className="mb-1" />
+                <div className="flex items-center absolute top-full mt-2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                  Playground
+                </div>
+              </div>
+              {!collapsed && "playground"}
+            </Link>
+            {getuser.result.isTeacher && (
+              <Link
+                to="/dashboard/add-course"
+                className={active === "4" ? "active" : ""}
+                onClick={() => setActive("4")}
+              >
+                {" "}
+                <div className="flex items-center group relative">
+                  <FolderAddOutlined className="mr-1" />
+                  <div className="flex items-center absolute left-full ml-2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                    Add Course
+                  </div>
+                </div>
+                {!collapsed && "Add Course"}
+              </Link>
+            )}
+            <Link to="/dashboard/profile">
+              {" "}
+              <div className="flex flex-col items-center group relative">
+                <QuestionCircleOutlined className="mb-1" />
+                <div className="flex items-center absolute top-full mt-2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                  `{getuser.result.isTeacher ? "Resolve Doubt" : "My Doubts"}`
+                </div>
+              </div>
+              {!collapsed &&
+                `${getuser.result.isTeacher ? "Resolve Doubt" : "My Doubts"}`}
+            </Link>
+            <Link to="/">
+              {" "}
+              <div className="flex flex-col items-center group relative">
+                <ArrowLeftOutlined className="mb-1" />
+                <div className="flex items-center absolute top-full mt-2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                  Home
+                </div>
+              </div>
+              {!collapsed && "Back to home"}
+            </Link>
+          </div>
         </Sider>
         <Layout>
-          <Header
-            style={{
-              padding: 0,
-              background: colorBgContainer,
-            }}
-          />
           <Content
             style={{
               margin: "0 16px",
+              overflow: "auto",
             }}
           >
             <Breadcrumb
@@ -152,8 +144,14 @@ const Dashboard = () => {
                 margin: "16px 0",
               }}
             >
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
+              <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+              <Breadcrumb.Item>
+                {active === "1" && "Profile"}
+                {active === "2" && "Courses"}
+                {active === "3" && "Playground"}
+                {active === "4" && "Add Course"}
+                {active === "-1" && "Courses / Learn"}
+              </Breadcrumb.Item>
             </Breadcrumb>
             <div
               style={{
@@ -162,7 +160,16 @@ const Dashboard = () => {
                 background: colorBgContainer,
               }}
             >
-              Bill is a cat.
+              <Routes>
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/add-course" element={<AddCourse />} />
+                <Route
+                  path="/courses"
+                  element={<Courses setActive={setActive} />}
+                />
+                <Route path="/courses/:id" element={<LearnCourse />} />
+                <Route path="/playground" element={<Landing />} />
+              </Routes>
             </div>
           </Content>
           <Footer

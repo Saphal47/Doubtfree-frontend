@@ -1,53 +1,24 @@
+import React from "react";
 import {
-  AutoComplete,
+  Avatar,
   Button,
-  Cascader,
   Checkbox,
-  Col,
+  DatePicker,
   Form,
   Input,
-  InputNumber,
-  Row,
   Select,
+  Switch,
+  Upload,
+  message,
 } from "antd";
 import { useState } from "react";
 import "./style.css";
+import { RegisterUserService } from "../../services/auth/register";
+import { useDispatch } from "react-redux";
+import { UploadOutlined, UserOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
-const residences = [
-  {
-    value: "zhejiang",
-    label: "Zhejiang",
-    children: [
-      {
-        value: "hangzhou",
-        label: "Hangzhou",
-        children: [
-          {
-            value: "xihu",
-            label: "West Lake",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: "jiangsu",
-    label: "Jiangsu",
-    children: [
-      {
-        value: "nanjing",
-        label: "Nanjing",
-        children: [
-          {
-            value: "zhonghuamen",
-            label: "Zhong Hua Men",
-          },
-        ],
-      },
-    ],
-  },
-];
+
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -80,8 +51,49 @@ const tailFormItemLayout = {
 };
 const Register = () => {
   const [form] = Form.useForm();
-  const onFinish = (values) => {
+  const [messageApi, contextHolder] = message.useMessage();
+  const dispatch = useDispatch();
+  const [image, setImage] = useState(null);
+  const [isUploaded, setUploaded] = useState(false);
+
+  const onFinish = async (values) => {
+    const key = "updatable";
+    messageApi.open({
+      key,
+      type: "loading",
+      content: "Loading...",
+    });
     console.log("Received values of form: ", values);
+    const reader = new FileReader();
+    reader.onload = async (event) => {
+      const buffer = event.target.result; // The file buffer
+      const mimeType = image.type;
+
+      // Create a FormData object to send the file
+      const formData = new FormData();
+      formData.append(
+        "file",
+        new Blob([buffer], { type: mimeType }),
+        image.name
+      );
+      formData.append("name", values.name);
+      formData.append("email", values.email);
+      formData.append("password", values.password);
+      formData.append("residence", values.residence);
+      formData.append("mobile_number", values.mobile_number);
+      formData.append("introduction", values.introduction);
+      formData.append("gender", values.gender);
+      formData.append("date_of_birth", values.date_of_birth);
+      formData.append("isTeacher", values.isTeacher);
+      console.log("Received values of form: ", formData);
+      const res = await RegisterUserService(formData, dispatch);
+      messageApi.open({
+        key,
+        type: "success",
+        content: res,
+      });
+    };
+    reader.readAsArrayBuffer(image);
   };
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
@@ -90,39 +102,14 @@ const Register = () => {
           width: 70,
         }}
       >
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
+        <Option value="91">+91</Option>
+        <Option value="92">+92</Option>
       </Select>
     </Form.Item>
   );
-  const suffixSelector = (
-    <Form.Item name="suffix" noStyle>
-      <Select
-        style={{
-          width: 70,
-        }}
-      >
-        <Option value="USD">$</Option>
-        <Option value="CNY">¥</Option>
-      </Select>
-    </Form.Item>
-  );
-  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
-  const onWebsiteChange = (value) => {
-    if (!value) {
-      setAutoCompleteResult([]);
-    } else {
-      setAutoCompleteResult(
-        [".com", ".org", ".net"].map((domain) => `${value}${domain}`)
-      );
-    }
-  };
-  const websiteOptions = autoCompleteResult.map((website) => ({
-    label: website,
-    value: website,
-  }));
   return (
     <div className="container-register">
+      {contextHolder}
       <Form
         {...formItemLayout}
         form={form}
@@ -130,14 +117,56 @@ const Register = () => {
         className="container-register-form"
         onFinish={onFinish}
         initialValues={{
-          residence: ["zhejiang", "hangzhou", "xihu"],
-          prefix: "86",
+          isTeacher: false,
         }}
         scrollToFirstError
+        noValidate
       >
         <span className="form-head">
           <h4>Register</h4>
         </span>
+        <span className="form-head">
+          {image && (
+            <Avatar size={100}>
+              <img
+                src={URL.createObjectURL(image)}
+                alt="Image"
+                style={{ transform: "scale(2) translateY(10px)" }}
+              />{" "}
+            </Avatar>
+          )}
+        </span>
+        <Form.Item
+          name="isTeacher"
+          label="Teacher or Student"
+          tooltip="Who are you?"
+          rules={[
+            {
+              required: false,
+              message: "Please input this field!",
+            },
+          ]}
+        >
+          <Switch
+            checkedChildren="Teacher"
+            className="bg-gray-600"
+            unCheckedChildren="Student"
+          />
+        </Form.Item>
+        <Form.Item
+          name="name"
+          label="Name"
+          tooltip="What is your name?"
+          rules={[
+            {
+              required: true,
+              message: "Please input your name!",
+              whitespace: true,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
         <Form.Item
           name="email"
           label="E-mail"
@@ -193,43 +222,50 @@ const Register = () => {
         >
           <Input.Password />
         </Form.Item>
-
         <Form.Item
-          name="nickname"
-          label="Nickname"
-          tooltip="What do you want others to call you?"
+          name="profileImage"
+          label="Profile Image"
           rules={[
             {
               required: true,
-              message: "Please input your nickname!",
-              whitespace: true,
+              message: "Please Upload Profile Image",
+            },
+          ]}
+        >
+          <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+        </Form.Item>
+        <Form.Item
+          name="date_of_birth"
+          label="Date of Birth"
+          rules={[
+            {
+              required: true,
+              message: "Please write Date of Birth",
+            },
+          ]}
+        >
+          <input type="date" />
+        </Form.Item>
+        <Form.Item
+          name="residence"
+          label="Residence"
+          tooltip="What is your home address?"
+          rules={[
+            {
+              required: true,
+              message: "Please input your address!",
             },
           ]}
         >
           <Input />
         </Form.Item>
-
         <Form.Item
-          name="residence"
-          label="Habitual Residence"
-          rules={[
-            {
-              type: "array",
-              required: true,
-              message: "Please select your habitual residence!",
-            },
-          ]}
-        >
-          <Cascader options={residences} />
-        </Form.Item>
-
-        <Form.Item
-          name="phone"
-          label="Phone Number"
+          name="mobile_number"
+          label="Mobile Number"
           rules={[
             {
               required: true,
-              message: "Please input your phone number!",
+              message: "Please input your mobile number!",
             },
           ]}
         >
@@ -240,64 +276,25 @@ const Register = () => {
             }}
           />
         </Form.Item>
-
         <Form.Item
-          name="donation"
-          label="Donation"
+          name="introduction"
+          label="Introduction"
           rules={[
             {
               required: true,
-              message: "Please input donation amount!",
-            },
-          ]}
-        >
-          <InputNumber
-            addonAfter={suffixSelector}
-            style={{
-              width: "100%",
-            }}
-          />
-        </Form.Item>
-
-        <Form.Item
-          name="website"
-          label="Website"
-          rules={[
-            {
-              required: true,
-              message: "Please input website!",
-            },
-          ]}
-        >
-          <AutoComplete
-            options={websiteOptions}
-            onChange={onWebsiteChange}
-            placeholder="website"
-          >
-            <Input />
-          </AutoComplete>
-        </Form.Item>
-
-        <Form.Item
-          name="intro"
-          label="Intro"
-          rules={[
-            {
-              required: true,
-              message: "Please input Intro",
+              message: "Please input Introduction",
             },
           ]}
         >
           <Input.TextArea showCount maxLength={100} />
         </Form.Item>
-
         <Form.Item
           name="gender"
           label="Gender"
           rules={[
             {
               required: true,
-              message: "Please select gender!",
+              message: "Please select Gender!",
             },
           ]}
         >
@@ -307,32 +304,6 @@ const Register = () => {
             <Option value="other">Other</Option>
           </Select>
         </Form.Item>
-
-        <Form.Item
-          label="Captcha"
-          extra="We must make sure that your are a human."
-        >
-          <Row gutter={8}>
-            <Col span={12}>
-              <Form.Item
-                name="captcha"
-                noStyle
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input the captcha you got!",
-                  },
-                ]}
-              >
-                <Input />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Button>Get captcha</Button>
-            </Col>
-          </Row>
-        </Form.Item>
-
         <Form.Item
           name="agreement"
           valuePropName="checked"
@@ -347,14 +318,18 @@ const Register = () => {
           {...tailFormItemLayout}
         >
           <Checkbox>
-            I have read the <a href="">agreement</a>
+            I have read the{" "}
+            <a href="" target="_blank">
+              agreement
+            </a>
           </Checkbox>
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
           <Button
             type="primary"
             htmlType="submit"
-            className="login-form-button"
+            className="login-form-button bg-blue-400"
+            loading={false}
           >
             Register
           </Button>

@@ -50,3 +50,56 @@
   width: 50%;
   padding: 20px;
 }
+
+.search-btn button {
+  background-color: rgb(0, 170, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animation-placeholder {
+  display: inline-block;
+  width: 1px;
+  height: 80px; /* Adjust the height as per your layout */
+  visibility: hidden;
+}
+
+.animation-text {
+  display: inline-block;
+  height: 60px; /* Adjust the height as per your layout */
+}
+
+.floating-image {
+  position: absolute;
+  animation: floatingAnimation 4s ease-in-out infinite;
+}
+
+@keyframes floatingAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+
+
+
+
+/* Code ide */
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap");
+.code-ide {
+  background-color: #000 !important;
+  color: rgba(0, 255, 0, 0.986);
+  font-family: "Source Code Pro", monospace !important;
+}
+
+.code-ide::placeholder {
+  color: #ffffff80;
+}

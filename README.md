@@ -67,9 +67,15 @@ Before running the application, you need to configure the following environment 
 - User profile management
 <img width="743" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/a1e24b52-1304-4257-98a6-d24a7021bbe9">
 <img width="884" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/e27c37f8-f047-4986-95ec-d342f6ef99d7">
+<img width="879" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/a9d0906f-32fd-40c8-b11c-f55f8c347ca2">
+<img width="879" alt="image" src="[https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/a9d0906f-32fd-40c8-b11c-f55f8c347ca2">
+
 
 ![Feature 5](screenshots/feature5.png)
 - Forum for discussion and collaboration
+<img width="697" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/80539715-f5bd-41ef-9b8a-846c116b92f0">
+<img width="850" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/0bc990a4-6e54-4371-a40e-5cc1f6a1bd1a">
+<img width="857" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/def6ed04-224a-4d43-b873-4b3d46e1c410">
 
 
 

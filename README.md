@@ -33,19 +33,21 @@ Before running the application, you need to configure the following environment 
 
 ## <a id="features">Features </a>
 
-- ## How to Start with DoubtFree?
+### How to Start with DoubtFree?
+1. On the HomePage, register yourself
+2. Then Login to your account
 <img width="891" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/a1f147e9-089e-4add-bd7c-194c3487b3ff">
 
 
-<img width="500" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/6618c079-ff47-4698-86d0-16c3df11a8f2">
+<img width="891" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/6618c079-ff47-4698-86d0-16c3df11a8f2">
 <img width="403" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/b9a1f304-9a55-4680-93fe-63c228efae7e">
 
-1. Register yourself 
-2. Login to your account.
+3. User can be either Student or Teacher
 
 
-- ## Dashboard
+- ###  Dashboard
 
+- #### Student View
 <img width="849" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/d83d3223-8a61-4b46-b16f-9b71e5f5af6a">
 
 1. Enroll yourself into courses
@@ -56,6 +58,10 @@ Before running the application, you need to configure the following environment 
 <img width="490" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/e9978470-afae-4eb8-a34b-b652be02593f">
 <img width="490" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/5402d0f8-3e29-4b26-af3f-faf2645b27b3">
 </span>
+
+- #### Teacher's view
+<img width="879" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/a9d0906f-32fd-40c8-b11c-f55f8c347ca2">
+
 - Interactive coding exercises
 <img width="807" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/174e8fde-e275-483a-992d-41d5214b0ece">
 <img width="842" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/7e9d21bb-134e-496b-b100-93e8f9d49284">
@@ -67,8 +73,6 @@ Before running the application, you need to configure the following environment 
 - User profile management
 <img width="743" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/a1e24b52-1304-4257-98a6-d24a7021bbe9">
 <img width="884" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/e27c37f8-f047-4986-95ec-d342f6ef99d7">
-<img width="879" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/a9d0906f-32fd-40c8-b11c-f55f8c347ca2">
-<img width="879" alt="image" src="[https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/a9d0906f-32fd-40c8-b11c-f55f8c347ca2">
 
 
 ![Feature 5](screenshots/feature5.png)

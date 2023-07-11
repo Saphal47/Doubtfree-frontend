@@ -8,6 +8,10 @@ Doubtfree is a coding platform designed to provide students with coding courses,
 ## Table of Contents
 ➡️ [Getting Started](#getting-started)\
 ➡️ [Features](#features)\
+➡️ [Student](#studentView)\
+➡️ [Teacher](#teacherView)\
+➡️ [DoubtSupport](#doubtsupport)\
+➡️ [Courses](#courses)\
 ➡️ [License](#license)
 
 ##  <a name="getting-started">Getting Started</a>
@@ -39,15 +43,15 @@ Before running the application, you need to configure the following environment 
 <img width="891" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/a1f147e9-089e-4add-bd7c-194c3487b3ff">
 
 
-<img width="891" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/6618c079-ff47-4698-86d0-16c3df11a8f2">
-<img width="403" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/b9a1f304-9a55-4680-93fe-63c228efae7e">
-
+<img width="891" alt="image" align="center" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/6618c079-ff47-4698-86d0-16c3df11a8f2">
+<img width="800" alt="image" align="center" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/b9a1f304-9a55-4680-93fe-63c228efae7e">
+<br>
 3. User can be either Student or Teacher
 
 
 - ###  Dashboard
 
-- #### Student View
+- #### <a id="studentView"> Student's View </a>
 <img width="849" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/d83d3223-8a61-4b46-b16f-9b71e5f5af6a">
 
 1. Enroll yourself into courses
@@ -58,32 +62,57 @@ Before running the application, you need to configure the following environment 
 <img width="490" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/e9978470-afae-4eb8-a34b-b652be02593f">
 <img width="490" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/5402d0f8-3e29-4b26-af3f-faf2645b27b3">
 </span>
+<br>
 
-- #### Teacher's view
+- #### <a id="teacherView"> Teacher's View </a>
+
+1.  Add courses and its content
+2.  Resolve student's doubts
 <img width="879" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/a9d0906f-32fd-40c8-b11c-f55f8c347ca2">
-
-- Interactive coding exercises
-<img width="807" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/174e8fde-e275-483a-992d-41d5214b0ece">
-<img width="842" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/7e9d21bb-134e-496b-b100-93e8f9d49284">
-<img width="876" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/1bc491e2-adc5-425b-bdb4-5a788ae949d4">
-<img width="705" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/aa60192a-53dd-459c-a29c-fd8bbcecc625">
-<img width="447" alt="Screenshot 2023-07-10 232225" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/9fd7ba6d-82bf-484f-a126-89def675ec80">
-
-![Feature 4](screenshots/feature4.png)
-- User profile management
-<img width="743" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/a1e24b52-1304-4257-98a6-d24a7021bbe9">
 <img width="884" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/e27c37f8-f047-4986-95ec-d342f6ef99d7">
-
-
-![Feature 5](screenshots/feature5.png)
-- Forum for discussion and collaboration
 <img width="697" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/80539715-f5bd-41ef-9b8a-846c116b92f0">
-<img width="850" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/0bc990a4-6e54-4371-a40e-5cc1f6a1bd1a">
-<img width="857" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/def6ed04-224a-4d43-b873-4b3d46e1c410">
+
+<br>
+
+-  #### <a id="doubtsupport"> Doubt Support </a>
+  
+1.  On DoubtSupport page student can choose a mentor to ask doubt
+<img width="807" alt="image" align="center" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/174e8fde-e275-483a-992d-41d5214b0ece">
+
+
+2. Teacher will see in Dashboard's Resolve Doubts  and answer
+
+
+<img width="876" alt="image" align="center" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/1bc491e2-adc5-425b-bdb4-5a788ae949d4">
+<img width="447" align="center" alt="Screenshot 2023-07-10 232225" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/9fd7ba6d-82bf-484f-a126-89def675ec80">
+
+<br> <br>
+
+3. Student can check in MyDoubts in Dashboard can mark it Cleared if resolved
+
+
+<img width="705" alt="image" align="center" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/aa60192a-53dd-459c-a29c-fd8bbcecc625">
+
+
+<br><br>
+4. Students can connect 1-2-1 with their mentors on G-meet call
+
+
+<img width="842" alt="image" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/7e9d21bb-134e-496b-b100-93e8f9d49284">
+
+- #### <a id="courses"> Courses </a>
+1. View Courses
+<img width="900" alt="image"  align="center" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/416819d6-4e54-4ece-9421-3e6a80b4f264">
+<br>
+
+2. Buy courses and enroll in after login
+<img width="418" alt="image" align="center" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/1fa0e680-0dad-4a5d-ae02-07dfa84d9565">
 
 
 
+##  <a id="license">License and Copyright</a>
 
-##  <a href="license">License</a>
+The User can contact Admin if facing any Issue.
+<img width="857" alt="image" align="center" src="https://github.com/Saphal47/Doubtfree-frontend/assets/81916015/def6ed04-224a-4d43-b873-4b3d46e1c410">
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [Doubtfree](DOUBTFREE).

@@ -6,34 +6,12 @@ Doubtfree is a coding platform designed to provide students with coding courses,
 ## Deployed Link: [https://effortless-froyo-5575b8.netlify.app/](https://effortless-froyo-5575b8.netlify.app/)
 
 ## Table of Contents
-➡️ [Getting Started](#getting-started)\
 ➡️ [Features](#features)\
 ➡️ [Student](#studentView)\
 ➡️ [Teacher](#teacherView)\
 ➡️ [DoubtSupport](#doubtsupport)\
 ➡️ [Courses](#courses)\
 ➡️ [License](#license)
-
-##  <a name="getting-started">Getting Started</a>
-
-To get started with Doubtfree, follow these steps:
-
-1. Clone the repository: `git clone https://github.com/your-username/doubtfree.git`
-2. Install the dependencies: `npm install`
-3. Configure the environment variables (see [Configuration](#configuration))
-
-## <a name="configuration"> Configuration </a>
-
-Before running the application, you need to configure the following environment variables:
-
-- `REACT_APP_API_BASE_URL`: Base URL of the Doubtfree API
-- Create a `.env` file in the root directory and add the following line:
-- Replace `https://heroic-rabanadas-aaaaaa.netlify.app/.netlify/functions/index` with the actual URL of your Doubtfree API.
-
-
-
-4. Start the development server: `npm start`
-5. Open your web browser and visit: `http://localhost:3000`
 
 ## <a id="features">Features </a>
 
